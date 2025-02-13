@@ -27,8 +27,7 @@ export async function getRecipeFromAnthropicAI(ingredientsArr) {
     return msg.content[0].text
 }
 
-// Make sure you set an environment variable in Scrimba 
-// for HF_ACCESS_TOKEN
+
 const hf = new HfInference(import.meta.env.VITE_HF_ACCESS_TOKEN)
 
 export async function getRecipeFromMistralAI(ingredientsArr) {
