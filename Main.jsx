@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import IngredientsList from "./components/IngredientsList";
-import ClaudeRecipe from "./components/ClaudeRecipe";
-import { getRecipeFromChefClaude } from "./ai";
+import AIRecipe from "./components/AIRecipe";
+import { getRecipeFromAnthropicAI, getRecipeFromMistralAI } from "./ai";
 
 export default function Main() {
     const [ingredients, setIngredients] = useState(
@@ -11,7 +11,7 @@ export default function Main() {
     const [newIngredient, setNewIngredient] = useState(""); // State to control input field
 
     async function getRecipe() {
-        const recipeMarkdown = await getRecipeFromChefClaude(ingredients);
+        const recipeMarkdown = await getRecipeFromAnthropicAI(ingredients);
         setRecipe(recipeMarkdown);
     }
 
@@ -53,7 +53,7 @@ export default function Main() {
                 />
             )}
 
-            {recipe && <ClaudeRecipe recipe={recipe} />}
+            {recipe && <AIRecipe recipe={recipe} />}
         </main>
     );
 }
