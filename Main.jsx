@@ -4,11 +4,11 @@ import AIRecipe from "./components/AIRecipe";
 import { getRecipeFromAnthropicAI, getRecipeFromMistralAI } from "./ai";
 
 export default function Main() {
-    const [ingredients, setIngredients] = useState(
+    const [ingredients, setIngredients] = React.useState(
         []
     );
     const [recipe, setRecipe] = useState("");
-    const [newIngredient, setNewIngredient] = useState(""); // State to control input field
+    const [newIngredient, setNewIngredient] = React.useState(""); // State to control input field
 
     async function getRecipe() {
         const recipeMarkdown = await getRecipeFromAnthropicAI(ingredients);
